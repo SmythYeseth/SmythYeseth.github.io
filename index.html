@@ -3,103 +3,212 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Smyth Yeseth Soto Rodríguez</title>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background: #111;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-    section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    h1 { 
-       color:#FFFF;
-    }
-    h2 {
-      color: #222;
-    }
-    .skills li {
-      margin-bottom: 5px;
-    }
-    .contact {
-      background: #222;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-    .projects ul {
-      list-style: none;
-      padding: 0;
-    }
-    .projects li {
-      margin-bottom: 1rem;
-      background: #fff;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      background: #ddd;
-    }
+    :root {
+      --color-oscuro: #2B2D42;
+      --color-medio: #8D99AE;
+      --color-claro: #EDF2F4;
+      --color-rojo: #EF233C;
+      --color-rojo-oscuro: #D90429;
+    }* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--color-claro);
+  color: var(--color-oscuro);
+}
+nav {
+  background: var(--color-oscuro);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.nav-brand {
+  font-size: 1.2rem;
+}
+.nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+  white-space: nowrap;
+}
+nav ul li a:hover {
+  color: var(--color-rojo);
+}
+header {
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+  background: var(--color-oscuro);
+  color: white;
+}
+section {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+section h2 {
+  color: var(--color-oscuro);
+  margin-bottom: 1rem;
+}
+ul.skills, .projects ul, section ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+.projects li {
+  background: white;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--color-rojo);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+}
+.btn:hover {
+  background: var(--color-rojo-oscuro);
+  transform: scale(1.05);
+}
+.contact {
+  background: var(--color-medio);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: var(--color-oscuro);
+  color: white;
+  font-size: 0.9rem;
+}
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 2rem;
+  background: #25d366;
+  color: white;
+  padding: 0.8rem;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: var(--color-oscuro);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+  }
+  nav ul.show {
+    display: flex;
+  }
+  nav ul li {
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+}
+
   </style>
 </head>
 <body>
-  <header>
+  <nav>
+    <div class="nav-brand">Smyth Yeseth</div>
+    <div class="nav-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    <ul id="nav-menu">
+      <li><a href="#sobre">Sobre mí</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#idiomas">Idiomas</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>  <header>
     <h1>Smyth Yeseth Soto Rodríguez</h1>
     <p>Futuro programador, desarrollando soluciones reales desde hoy.</p>
-  </header>  <section>
+    <a class="btn" href="#proyectos">Ver proyectos</a>
+  </header>  <section id="sobre">
     <h2>Sobre mí</h2>
-    <p>Estudiante de grado 11 en la Institución Educativa José Antonio Galán y técnico en formación en programación de software en el SENA. Apasionado por el desarrollo web, la automatización de procesos y la creación de soluciones innovadoras que integren tecnología con experiencia de usuario. Con habilidades autodidactas y visión emprendedora, especialmente en el diseño de tiendas virtuales modernas y sistemas inteligentes.</p>
-  </section>  <section>
+    <p>Estudiante de grado 11 en la Institución Educativa José Antonio Galán y técnico en formación en programación de software en el SENA. Apasionado por el desarrollo web, la automatización de procesos y la creación de soluciones innovadoras. Habilidades autodidactas, visión emprendedora y gusto por el diseño de tiendas virtuales modernas e inteligentes.</p>
+  </section>  <section id="habilidades">
     <h2>Habilidades</h2>
     <ul class="skills">
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JavaScript (en proceso de aprendizaje)</li>
-      <li>Diseño responsivo</li>
-      <li>Lógica de programación</li>
-      <li>Creatividad y resolución de problemas</li>
+      <li><i class="fab fa-html5"></i> HTML</li>
+      <li><i class="fab fa-css3-alt"></i> CSS</li>
+      <li><i class="fab fa-js"></i> JavaScript (en proceso)</li>
+      <li><i class="fas fa-mobile-alt"></i> Diseño responsivo</li>
+      <li><i class="fas fa-code"></i> Lógica de programación</li>
+      <li><i class="fas fa-lightbulb"></i> Creatividad y resolución de problemas</li>
     </ul>
-  </section>  <section class="projects">
+  </section>  <section id="proyectos" class="projects">
     <h2>Proyectos</h2>
     <ul>
       <li>
         <strong>Tienda virtual "Nuvia"</strong><br>
-        Proyecto de tienda moderna estilo app, con diseño responsivo, chatbot, carrito de compras y sistema de administración. Tecnologías: HTML, CSS, JavaScript.
+        Proyecto estilo app con diseño responsivo, chatbot, carrito y panel admin.<br>
+        <a href="#" class="btn">Ver más</a>
       </li>
       <li>
         <strong>Página web básica</strong><br>
-        Estructura HTML con menú, imagen y estilos personalizados en CSS.
+        Estructura HTML con menú, imagen y estilos personalizados en CSS.<br>
+        <a href="#" class="btn">Ver más</a>
       </li>
     </ul>
-  </section>  <section>
+  </section>  <section id="idiomas">
     <h2>Idiomas</h2>
     <ul>
-      <li>Español (nativo)</li>
-      <li>Inglés (básico)</li>
-      <li>Portugués (en aprendizaje)</li>
+      <li><span>🇪🇸</span> Español (nativo)</li>
+      <li><span>🇺🇸</span> Inglés (básico)</li>
+      <li><span>🇧🇷</span> Portugués (en aprendizaje)</li>
     </ul>
   </section>  <section>
     <h2>Otros Intereses</h2>
-    <p>Músico: Tamborero, aprendiz de saxofón y flauta de millo. Emprendimiento digital. Filosofía personal basada en el "Programador Supremo" como guía de desarrollo humano y espiritual.</p>
-  </section>  <div class="contact">
+    <p>Músico: Tamborero, aprendiz de saxofón y flauta de millo. Emprendimiento digital. Filosofía basada en el "Programador Supremo" como guía personal y espiritual.</p>
+  </section>  <div class="contact" id="contacto">
     <h2>Contacto</h2>
-    <p>📧 esmithst@gmail.com</p>
-    <p>📱 3136836153</p>
+    <p><i class="fas fa-envelope"></i> esmithst@gmail.com</p>
+    <p><i class="fas fa-phone"></i> 3136836153</p>
   </div>  <footer>
     &copy; 2025 Smyth Yeseth Soto Rodríguez. Todos los derechos reservados.
-  </footer>
-</body>
+  </footer>  <a href="https://wa.me/573136836153" class="whatsapp-btn" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>  <script>
+    function toggleMenu() {
+      document.getElementById('nav-menu').classList.toggle('show');
+    }
+  </script></body>
 </html>
